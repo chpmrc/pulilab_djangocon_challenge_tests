@@ -45,9 +45,9 @@ solutions = [
         lambda string: reduce(lambda x, y: x+y, [string[:i+1] for i,j in enumerate(string)]),
         lambda string: reduce(lambda x,y: x + y, [string[:i+1] for i in range(len(string))]),
         lambda string: reduce(lambda a, (i,x): a + a[len(a)-i:]+x, enumerate(string), ""),
-        # # Official
+        # Official
         lambda string: reduce(lambda acc, index: acc + string[:index], xrange(len(string) + 1), str()),
-        # # Voodoo
+        # Voodoo
         lambda string: reduce(lambda x, y: x + string[:(int(0.5*sqrt(8 * len(x) + 1) - 0.5) + 1)], string),
     ]
 
