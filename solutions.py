@@ -22,6 +22,7 @@ solutions = [
         lambda string: reduce(lambda x,y : x + string[:string.find(y)+1], string),
         lambda string: reduce(lambda origin, new: origin + string[:new + 1], range(len(string)), ""),
         lambda string: reduce(lambda x, y: x + string[:y], range(len(string) + 1), ''),
+        # This returns a list!
         lambda string: reduce(lambda a, b: ''.join(a) + ''.join(b), [ list(string)[0:i+1] for i in range(0, len(list(string)), 1) ]),
         lambda string: reduce(lambda a, b: a + b, map(lambda n: string[:n], xrange(1, len(string)+1))),
         lambda string: reduce(lambda r, s: r + s, reduce(lambda a, s: a + [a[-1] + s], string, [''])),
@@ -44,9 +45,9 @@ solutions = [
         lambda string: reduce(lambda x, y: x+y, [string[:i+1] for i,j in enumerate(string)]),
         lambda string: reduce(lambda x,y: x + y, [string[:i+1] for i in range(len(string))]),
         lambda string: reduce(lambda a, (i,x): a + a[len(a)-i:]+x, enumerate(string), ""),
-        # Official
+        # # Official
         lambda string: reduce(lambda acc, index: acc + string[:index], xrange(len(string) + 1), str()),
-        # Voodoo
+        # # Voodoo
         lambda string: reduce(lambda x, y: x + string[:(int(0.5*sqrt(8 * len(x) + 1) - 0.5) + 1)], string),
     ]
 
@@ -66,5 +67,4 @@ def string_wave(string, solution_number):
     # HINT1: IT SHOULD RETURN A STRING
     # HINT2: MUST BE A ONE LINER!
     # HINT3: ONLY SEND FUNC ARGUMENTS
-
     return solutions[solution_number](string)

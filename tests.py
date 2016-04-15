@@ -2,7 +2,7 @@
 
 # Tests
 
-from main import string_wave, solutions
+from solutions import string_wave, solutions
 
 
 def test_all(i):
